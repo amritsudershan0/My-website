@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="panel">
+  <h2>Simulation Parameters</h2>
+  <div class="controls">
+    <div class="control-group">
+      <label for="initSize">Initial Population Size</label>
+      <input type="range" id="initSize" min="50" max="500" value="200">
+      <div class="value-display">Value: <span id="initSizeValue">200</span></div>
+    </div>
+    
+    <div class="control-group">
+      <label for="alleleA">Allele A Frequency (%)</label>
+      <input type="range" id="alleleA" min="1" max="99" value="50">
+      <div class="value-display">Value: <span id="alleleAValue">50</span>%</div>
+    </div>
+    
+    <div class="control-group">
+      <label for="bottleSize">Bottleneck Size</label>
+      <input type="range" id="bottleSize" min="1" max="50" value="10">
+      <div class="value-display">Value: <span id="bottleSizeValue">10</span></div>
+    </div>
+  </div>
+  
+  <div class="button-group">
+    <button id="runBtn">Run Simulation</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>Population Visualization</h2>
+  <div class="visualization">
+    <div class="population-vis">
+      <div class="population-title">Initial Population</div>
+      <div class="allele-grid" id="initialPop"></div>
+    </div>
+    <div class="population-vis">
+      <div class="population-title">Bottleneck Survivors</div>
+      <div class="allele-grid" id="bottlePop"></div>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>Simulation Results</h2>
+  <div class="results">
+    <div class="result-card">
+      <h3 class="result-title">Initial Population</h3>
+      <div class="metric">
+        <span class="metric-label">Population Size:</span>
+        <span class="metric-value" id="initialSize">-</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Allele A Frequency:</span>
+        <span class="metric-value" id="initialFreqA">-</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Allele a Frequency:</span>
+        <span class="metric-value" id="initialFreqB">-</span>
+      </div>
+      <div class="frequency-bar" id="initialDist"></div>
+    </div>
+    
+    <div class="result-card">
+      <h3 class="result-title">After Bottleneck</h3>
+      <div class="metric">
+        <span class="metric-label">Survivors:</span>
+        <span class="metric-value" id="bottleSizeResult">-</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Allele A Frequency:</span>
+        <span class="metric-value" id="bottleFreqA">-</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Allele a Frequency:</span>
+        <span class="metric-value" id="bottleFreqB">-</span>
+      </div>
+      <div class="frequency-bar" id="bottleDist"></div>
+    </div>
+  </div>
+  
+  <div class="result-card" style="grid-column: 1 / -1; margin-top: 20px;">
+    <h3 class="result-title">Genetic Changes</h3>
+    <div class="metric">
+      <span class="metric-label">Allele A Frequency Change:</span>
+      <span class="metric-value" id="changeA">0%</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Allele a Frequency Change:</span>
+      <span class="metric-value" id="changeB">0%</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Diversity Reduction:</span>
+      <span class="metric-value" id="diversityChange">0%</span>
+    </div>
+  </div>
+  
+  <div class="survivors-display" id="survivorsVis">
+    Survivors will appear here after simulation...
+  </div>
+  
+  <div class="conclusion" id="conclusion">
+    Run the simulation to see the genetic impact of the bottleneck event.
+  </div>
+</div>
+    
+</body>
+</html>
